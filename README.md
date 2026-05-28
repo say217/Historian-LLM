@@ -22,6 +22,11 @@ This project implements Parameter-Efficient Fine-Tuning (PEFT) via Low-Rank Adap
 
 The engineering lifecycle concludes with an end-to-end evaluation and model deployment workflow. Instead of altering the massive 14 GB base model directly, the training process produced a highly efficient, modular 26 MB set of adapter weights (`adapter_model.safetensors`). Performance validation was handled through a side-by-side behavioral benchmark tracking string similarity (ROUGE scores) against the frozen base model. The finalized, lightweight adapter layers were then successfully packaged and deployed to the Hugging Face Hub, allowing any downstream application to immediately dynamically snap the history-tuned behaviors right onto the official Mistral base architecture for zero-context inference.
 
+# Guide
+```
+Go to LLM_test.py  just run the code it automatically load the adapters that i trained and load base model
+
+```
 
 # Data Source
 ###  Dataset Card for SQuAD :
