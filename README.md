@@ -21,3 +21,39 @@
 This project implements Parameter-Efficient Fine-Tuning (PEFT) via Low-Rank Adaptation (LoRA) to specialize a Mistral-7B-Instruct-v0.2 base model for historical question-answering tasks. By consolidating and restructuring the text fields of two prominent benchmark datasets—SQuAD (contextual question-answering) and WikiQA (open-domain questions)—the pipeline unifies complex data schemas into Mistral’s native instruction format (`<s>[INST]...[/INST]`). Using 8-bit quantized optimization via bitsandbytes and the Hugging Face SFTTrainer, the model was trained for 100 steps on a Kaggle GPU environment, effectively dropping the initial training loss from a high of 2.44 down to a stabilized convergence around 1.80.
 
 The engineering lifecycle concludes with an end-to-end evaluation and model deployment workflow. Instead of altering the massive 14 GB base model directly, the training process produced a highly efficient, modular 26 MB set of adapter weights (`adapter_model.safetensors`). Performance validation was handled through a side-by-side behavioral benchmark tracking string similarity (ROUGE scores) against the frozen base model. The finalized, lightweight adapter layers were then successfully packaged and deployed to the Hugging Face Hub, allowing any downstream application to immediately dynamically snap the history-tuned behaviors right onto the official Mistral base architecture for zero-context inference.
+
+
+# Data Source
+###  Dataset Card for SQuAD :
+Stanford Question Answering Dataset (SQuAD) is a reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or span, from the corresponding reading passage, or the question might be unanswerable.
+
+SQuAD 1.1 contains 100,000+ question-answer pairs on 500+ articles.
+
+Link - https://huggingface.co/datasets/rajpurkar/squad
+
+### microsoft/wiki_qa
+Wiki Question Answering corpus from Microsoft.
+The WikiQA corpus is a publicly available set of question and sentence pairs, collected and annotated for research on open-domain question answering.
+
+Link - https://huggingface.co/datasets/microsoft/wiki_qa
+
+
+# LLM Model
+
+### mistralai/Mistral-7B-Instruct-v0.2
+
+The Mistral-7B-Instruct-v0.2 Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B-v0.2.
+
+Mistral-7B-v0.2 has the following changes compared to Mistral-7B-v0.1
+
+32k context window (vs 8k context in v0.1)
+Rope-theta = 1e6
+No Sliding-Window Attention
+For full details of this model please read our paper and release blog post.
+
+Instruction format
+In order to leverage instruction fine-tuning, your prompt should be surrounded by [INST] and [/INST] tokens. The very first instruction should begin with a begin of sentence id. The next instructions should not. The assistant generation will be ended by the end-of-sentence token id.
+
+
+
+
