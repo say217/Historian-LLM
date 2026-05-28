@@ -13,7 +13,7 @@ base_model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
-fine_tuned_model = PeftModel.from_pretrained(base_model, "say89/Mistral-7B-Instruct-v0.2-Finetuned")
+fine_tuned_model = PeftModel.from_pretrained(base_model, "say89/Mistral-7B-Instruct-v0.2-Finetuned") # load the traind adapters and load base model and use them
 
 # 3. Define a history test prompt using the training format
 prompt = "<s>[INST] Question: What event marked the beginning of the French Revolution? [/INST] Answer:"
