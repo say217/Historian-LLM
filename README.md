@@ -13,6 +13,9 @@
 ![Deployment](https://img.shields.io/badge/Deployment-HuggingFace_Hub-gold?style=for-the-badge&logo=huggingface)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)
 
+<img width="724" height="402" alt="image" src="https://github.com/user-attachments/assets/08f33267-7c7d-4056-8bdd-4fb465ad8789" />
+
+
 ## Project Overview
 
 This project implements Parameter-Efficient Fine-Tuning (PEFT) via Low-Rank Adaptation (LoRA) to specialize a Mistral-7B-Instruct-v0.2 base model for historical question-answering tasks. By consolidating and restructuring the text fields of two prominent benchmark datasets—SQuAD (contextual question-answering) and WikiQA (open-domain questions)—the pipeline unifies complex data schemas into Mistral’s native instruction format (`<s>[INST]...[/INST]`). Using 8-bit quantized optimization via bitsandbytes and the Hugging Face SFTTrainer, the model was trained for 100 steps on a Kaggle GPU environment, effectively dropping the initial training loss from a high of 2.44 down to a stabilized convergence around 1.80.
