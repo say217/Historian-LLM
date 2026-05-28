@@ -24,7 +24,16 @@ The engineering lifecycle concludes with an end-to-end evaluation and model depl
 
 # Guide
 ```
-Go to LLM_test.py  just run the code it automatically load the adapters that i trained and load base model
+Go to LLM_test.py  just run the code it automatically load the adapters that
+I trained and load base model,
+```
+```
+model_id = "mistralai/Mistral-7B-Instruct-v0.2"
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+
+fine_tuned_model = PeftModel.from_pretrained(base_model, "say89/Mistral-7B-Instruct-v0.2-Finetuned") 
+
 
 ```
 
