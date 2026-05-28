@@ -55,5 +55,7 @@ Instruction format
 In order to leverage instruction fine-tuning, your prompt should be surrounded by [INST] and [/INST] tokens. The very first instruction should begin with a begin of sentence id. The next instructions should not. The assistant generation will be ended by the end-of-sentence token id.
 
 
+## NoteBook Link
 
+Link - https://www.kaggle.com/code/sayaksamanta/llm-fine-tune-with-large-wikipedia-data
 
